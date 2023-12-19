@@ -1,13 +1,12 @@
 import { Center, Button as ChakraButton } from "@chakra-ui/react"
+import { MouseEventHandler } from "react"
 
 interface IButton {
     title: string
-    alertMessage: string
+    onClick: MouseEventHandler
 }
-export const Button = ({ title, alertMessage}: IButton) => {
-    const buttonFunc = () => {
-        alert(alertMessage)
-    }
+export const Button = ({ title, onClick }: IButton) => {
+    
     return (
         <Center>
             <ChakraButton 
@@ -15,7 +14,7 @@ export const Button = ({ title, alertMessage}: IButton) => {
                 size={"sm"} 
                 width={"100%"} 
                 marginTop={"5px"} 
-                onClick={buttonFunc} 
+                onClick={onClick} 
             >
                 {title}
             </ChakraButton>

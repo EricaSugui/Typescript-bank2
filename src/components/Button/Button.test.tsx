@@ -8,13 +8,13 @@ describe('button', () => {
     window.alert = mockAlert
     const defaultProps = {
         title: 'Button Title',
-        alertMessage: 'Alert Message',
+        onClick: mockAlert,
     }
     render(<Button {...defaultProps} />)
 
     it('Deve exibir um alert com boas vindas', () => {
         const button = screen.getByText(defaultProps.title)
         userEvent.click(button)
-        expect(mockAlert).toHaveBeenCalledWith( defaultProps.alertMessage)
+        expect(mockAlert).toHaveBeenCalled()
     })
 })
